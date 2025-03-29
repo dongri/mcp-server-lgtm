@@ -8,6 +8,11 @@ This is a TypeScript-based MCP server that interacts with the LGTM API. It provi
 
 ## Features
 
+### Create server
+```
+npx @modelcontextprotocol/create-server mcp-server-lgtm
+```
+
 ### Tools
 - `get_lgtm` - Fetch a random LGTM image
   - Returns markdown code for embedding the image
