@@ -1,5 +1,7 @@
 # mcp-server-lgtm MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@dongri/mcp-server-lgtm)](https://smithery.ai/server/@dongri/mcp-server-lgtm)
+
 A Model Context Protocol server for LGTM images
 
 This is a TypeScript-based MCP server that interacts with the LGTM API. It provides a tool to fetch random LGTM (Looks Good To Me) images that can be used in code reviews and other developer communications.
