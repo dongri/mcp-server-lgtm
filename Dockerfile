@@ -11,8 +11,6 @@ RUN npm install
 # Copy application code
 COPY . .
 
-COPY smithery.yaml /app/smithery.yaml
-
 # Build the application
 RUN npm run build
 
