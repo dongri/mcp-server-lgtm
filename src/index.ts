@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-
-/**
- * This is an MCP server that provides LGTM image URLs.
- * It implements a tool to fetch random LGTM images from the LGTM API.
- */
-
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import fetch from "node-fetch";
@@ -14,9 +8,6 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 
-/**
- * Type for LGTM API response
- */
 interface LgtmApiResponse {
   item: {
     id: number;
@@ -26,9 +17,6 @@ interface LgtmApiResponse {
   };
 }
 
-/**
- * Create an MCP server with capabilities for tools (to get LGTM images).
- */
 const server = new Server(
   {
     name: "mcp-server-lgtm",
@@ -41,16 +29,12 @@ const server = new Server(
   }
 );
 
-/**
- * Handler that lists available tools.
- * Exposes a single "get_lgtm" tool that fetches LGTM images.
- */
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
       {
         name: "get_lgtm",
-        description: "Get a random LGTM image URL",
+        description: "Get LGTM image and show markdown code and imageurl.",
         inputSchema: {
           type: "object",
           properties: {},
@@ -61,10 +45,6 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   };
 });
 
-/**
- * Handler for the get_lgtm tool.
- * Fetches a random LGTM image from the API and returns the URL.
- */
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   switch (request.params.name) {
     case "get_lgtm": {
@@ -73,11 +53,20 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const data = await response.json() as LgtmApiResponse;
         
         if (data && data.item && data.item.url) {
+          const imageUrl = data.item.url;
+          const imageId = data.item.id;
+
           return {
-            content: [{
-              type: "text",
-              text: data.item.url
-            }]
+            content: [
+              {
+                type: "text",
+                text: `Markdown Code: [![LGTM](https://lgtm.lol/p/${imageId})](https://lgtm.lol/i/${imageId})`
+              },
+              {
+                type: "text",
+                text: `View Image URL in img tag: <img src="${imageUrl}" alt="LGTM" />`
+              }
+            ]
           };
         } else {
           throw new Error("Invalid response from LGTM API");
@@ -93,10 +82,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-/**
- * Start the server using stdio transport.
- * This allows the server to communicate via standard input/output streams.
- */
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);

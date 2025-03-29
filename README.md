@@ -1,29 +1,15 @@
 # mcp-server-lgtm MCP Server
 
-A Model Context Protocol server
+A Model Context Protocol server for LGTM images
 
-This is a TypeScript-based MCP server that implements a simple notes system. It demonstrates core MCP concepts by providing:
-
-- Resources representing text notes with URIs and metadata
-- Tools for creating new notes
-- Prompts for generating summaries of notes
+This is a TypeScript-based MCP server that interacts with the LGTM API. It provides a tool to fetch random LGTM (Looks Good To Me) images that can be used in code reviews and other developer communications.
 
 ## Features
 
-### Resources
-- List and access notes via `note://` URIs
-- Each note has a title, content and metadata
-- Plain text mime type for simple content access
-
 ### Tools
-- `create_note` - Create new text notes
-  - Takes title and content as required parameters
-  - Stores note in server state
-
-### Prompts
-- `summarize_notes` - Generate a summary of all stored notes
-  - Includes all note contents as embedded resources
-  - Returns structured prompt for LLM summarization
+- `get_lgtm` - Fetch a random LGTM image
+  - Returns markdown code for embedding the image
+  - Provides the direct image URL for use in various contexts
 
 ## Development
 
