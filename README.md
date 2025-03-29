@@ -35,7 +35,7 @@ For development with auto-rebuild:
 npm run watch
 ```
 
-## Installation
+## Dev Installation
 
 To use with Claude Desktop, add the server config:
 
@@ -61,3 +61,7 @@ npm run inspector
 ```
 
 The Inspector will provide a URL to access debugging tools in your browser.
+
+## Smithery
+
+https://smithery.ai/server/@dongri/mcp-server-lgtm
