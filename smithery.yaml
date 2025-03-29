@@ -1,3 +1,6 @@
+build:
+  dockerBuildPath: ../../
+
 # Smithery.ai configuration
 startCommand:
   type: stdio
