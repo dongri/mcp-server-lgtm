@@ -1,6 +1,10 @@
 # Smithery.ai configuration
 startCommand:
   type: stdio
+  configSchema:
+    type: object
+    properties: {}
+    additionalProperties: false
   commandFunction:
     # A function that produces the CLI command to start the MCP on stdio.
     |-
@@ -10,3 +14,7 @@ startCommand:
         "build/index.js"
       ]
     })
+
+build:
+  dockerfile: Dockerfile
+  dockerBuildPath: .
