@@ -12,9 +12,7 @@ startCommand:
       "args": [
         "build/index.js"
       ],
-      "env": {
-        ...
-      }
+      "env": {}
     })
 
 build:
