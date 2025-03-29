@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
+COPY smithery.yaml ./
 
 # Install dependencies
 RUN npm install
