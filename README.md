@@ -52,6 +52,14 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 }
 ```
 
+### Installing via Smithery
+
+To install mcp-server-lgtm MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@dongri/mcp-server-lgtm):
+
+```bash
+npx -y @smithery/cli install @dongri/mcp-server-lgtm --client claude
+```
+
 ### Debugging
 
 Since MCP servers communicate over stdio, debugging can be challenging. We recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector), which is available as a package script:
