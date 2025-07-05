@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/dongri-mcp-server-lgtm-badge.png)](https://mseep.ai/app/dongri-mcp-server-lgtm)
+
 # mcp-server-lgtm MCP Server
 
 [![smithery badge](https://smithery.ai/badge/@dongri/mcp-server-lgtm)](https://smithery.ai/server/@dongri/mcp-server-lgtm)
